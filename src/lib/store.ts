@@ -1,15 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
-import test from './features/test/testSlice'
-import { testApi } from './features/test/services/testApi'
+import test from './features/tasks/testSlice'
 import { setupListeners } from '@reduxjs/toolkit/query'
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       test,
-      [testApi.reducerPath]: testApi.reducer
     },
-    middleware: (getDefaultMiddlewere) => getDefaultMiddlewere().concat([testApi.middleware])
   })
 }
 
